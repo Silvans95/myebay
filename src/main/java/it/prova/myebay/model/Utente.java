@@ -58,7 +58,12 @@ public class Utente {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Utente(String string, String string2, String string3, String string4, Date date) {
+		// TODO Auto-generated constructor stub
+	}
+
 //############################ GET SET ###########################
+
 
 	public Long getId() {
 		return id;

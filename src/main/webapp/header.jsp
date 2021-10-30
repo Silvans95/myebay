@@ -9,6 +9,8 @@
 <link rel="icon" href="${pageContext.request.contextPath}./assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="${pageContext.request.contextPath}./assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="icon" href="${pageContext.request.contextPath}./assets/img/favicons/favicon.ico">
+
+<link rel="icon" href="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/64/000000/external-panda-animal-head-icongeek26-outline-colour-icongeek26.png">
 <meta name="theme-color" content="#7952b3">
    
    

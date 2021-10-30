@@ -50,7 +50,9 @@
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
 				      <div class="container-fluid py-5">
-				        <h1 class="display-5 fw-bold">Benvenuto su My Ebay</h1>
+				        <h1 class="display-5 fw-bold">
+				         <img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/50/000000/external-panda-animal-head-icongeek26-linear-colour-icongeek26.png"/>
+						 Benvenuto su My Ebay</h1>
 				        <p class="col-md-8 fs-4">Usa il form qui sotto per cercare tra i nostri prodotti,
 				         per avere una lista completa lascia tutti i campi vuoti</p>
 				        <a class="btn btn-success btn-lg" href="PrepareSearchServlet">Cerca</a>
