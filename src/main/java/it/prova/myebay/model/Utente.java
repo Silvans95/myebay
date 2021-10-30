@@ -37,7 +37,7 @@ public class Utente {
 	@Column(name = "dateCreated")
 	private Date dateCreated;
 	@Column(name = "creditoResiduo")
-	private int creditoResiduo;
+	private Integer creditoResiduo;
 	// se non uso questa annotation viene gestito come un intero
 	@Enumerated(EnumType.STRING)
 	private StatoUtente stato = StatoUtente.CREATO;
@@ -108,11 +108,11 @@ public class Utente {
 		this.dateCreated = dateCreated;
 	}
 
-	public int getCreditoResiduo() {
+	public Integer getCreditoResiduo() {
 		return creditoResiduo;
 	}
 
-	public void setCreditoResiduo(int creditoResiduo) {
+	public void setCreditoResiduo(Integer creditoResiduo) {
 		this.creditoResiduo = creditoResiduo;
 	}
 
