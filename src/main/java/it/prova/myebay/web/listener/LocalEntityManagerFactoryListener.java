@@ -70,36 +70,25 @@ public class LocalEntityManagerFactoryListener implements ServletContextListener
 			ruoloServiceInstance.inserisciNuovo(new Ruolo("Administrator", "ROLE_ADMIN"));
 		}
 
-		if (ruoloServiceInstance.cercaPerDescrizioneECodice("Classic User", "ROLE_CLASSIC_USER") == null) {
-			ruoloServiceInstance.inserisciNuovo(new Ruolo("Classic User", "ROLE_CLASSIC_USER"));
-		}
-
-		if (ruoloServiceInstance.cercaPerDescrizioneECodice("Visitor User", "ROLE_VISITOR") == null) {
-			ruoloServiceInstance.inserisciNuovo(new Ruolo("Visitor User", "ROLE_VISITOR"));
+		if (ruoloServiceInstance.cercaPerDescrizioneECodice("Classic User", "CLASSIC_USER_ROLE") == null) {
+			ruoloServiceInstance.inserisciNuovo(new Ruolo("Classic User", "CLASSIC_USER_ROLE"));
 		}
 
 		if (utenteServiceInstance.findByUsernameAndPassword("admin", "admin") == null) {
-			Utente admin = new Utente("admin", "admin", "Mario", "Rossi", new Date());
+			Utente admin = new Utente("admin", "admin", "Mario", "Rossi", new Date(), 100);
 			admin.setStato(StatoUtente.ATTIVO);
 			utenteServiceInstance.inserisciNuovo(admin);
 			utenteServiceInstance.aggiungiRuolo(admin,
 					ruoloServiceInstance.cercaPerDescrizioneECodice("Administrator", "ROLE_ADMIN"));
 		}
-		if (utenteServiceInstance.findByUsernameAndPassword("user", "user") == null) {
-			Utente user = new Utente("user", "user", "Matteo", "Bianchi", new Date());
-			user.setStato(StatoUtente.ATTIVO);
-			utenteServiceInstance.inserisciNuovo(user);
-			utenteServiceInstance.aggiungiRuolo(user,
-					ruoloServiceInstance.cercaPerDescrizioneECodice("User", "ROLE_CLASSIC_USER"));
-		}
-		
-		if (utenteServiceInstance.findByUsernameAndPassword("visitor", "visitor") == null) {
-			Utente user = new Utente("visitor", "visitor", "Marco", "Verdi", new Date());
-			user.setStato(StatoUtente.ATTIVO);
-			utenteServiceInstance.inserisciNuovo(user);
-			utenteServiceInstance.aggiungiRuolo(user,
-					ruoloServiceInstance.cercaPerDescrizioneECodice("Visitor", "ROLE_VISITOR"));
-		}
 
+		if (utenteServiceInstance.findByUsernameAndPassword("user", "user") == null) {
+			Utente user = new Utente("user", "user", "Francesco", "Totti", new Date(), 1000);
+			user.setStato(StatoUtente.ATTIVO);
+			utenteServiceInstance.inserisciNuovo(user);
+			utenteServiceInstance.aggiungiRuolo(user,
+					ruoloServiceInstance.cercaPerDescrizioneECodice("user", "CLASSIC_USER_ROLE"));
+		}
 	}
+
 }

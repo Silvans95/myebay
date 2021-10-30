@@ -10,10 +10,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ruolo")
 public class Ruolo {
-
+	
 	public static final String ROLE_ADMIN = "ROLE_ADMIN";
-	public static final String ROLE_CLASSIC_USER = "ROLE_CLASSIC_USER";
-
+	public static final String CLASSIC_USER_ROLE = "CLASSIC_USER_ROLE";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -23,8 +23,6 @@ public class Ruolo {
 	@Column(name = "codice")
 	private String codice;
 
-	//############################ COSTRUTTORI ########################### 
-	
 	public Ruolo() {
 	}
 
@@ -33,8 +31,6 @@ public class Ruolo {
 		this.codice = codice;
 	}
 
-	//############################ GET SET ###############################		
-	
 	public Long getId() {
 		return id;
 	}

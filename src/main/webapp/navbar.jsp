@@ -1,5 +1,5 @@
 <header>
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-background">
 	  <div class="container-fluid">
   	   <a class="navbar-brand" href="index.jsp">
   	     <img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/50/000000/external-panda-animal-head-icongeek26-linear-colour-icongeek26.png"/>

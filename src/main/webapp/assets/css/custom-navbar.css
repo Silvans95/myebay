@@ -1,1 +1,9 @@
 @charset "ISO-8859-1";
+
+.navbar-background {
+	background: rgb(8, 7, 7);
+	background: linear-gradient(160deg, rgba(8, 7, 7, 0.9416141456582633) 0%,
+		rgba(33, 37, 41, 1) 10%, rgba(79, 83, 86, 1) 27%, rgba(79, 83, 86, 1)
+		44%, rgba(194, 204, 211, 1) 70%, rgba(227, 226, 226, 1) 90%,
+		rgba(255, 255, 255, 1) 100%);
+}
