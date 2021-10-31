@@ -1,6 +1,8 @@
 package it.prova.myebay.service.annuncio;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 
@@ -178,4 +180,42 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 		}
 
 	}
+	
+
+	@Override
+	public void inserisciNuovoConCategorie(Annuncio annuncioInstance, String[] categoriaInstance) throws Exception {
+		// questo è come una connection
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			// questo è come il MyConnection.getConnection()
+			entityManager.getTransaction().begin();
+
+			// uso l'injection per il dao
+			annuncioDAO.setEntityManager(entityManager);
+			categoriaDAO.setEntityManager(entityManager);
+
+			Set<Categoria> categorie = new HashSet<Categoria>();
+
+			for (int i = 0; i < categoriaInstance.length; i++) {
+				Long idCategorie = Long.parseLong(categoriaInstance[i]);
+
+				categorie.add(categoriaDAO.findOne(idCategorie).orElse(null));
+			}
+
+			annuncioInstance.setCategorie(categorie);
+
+			// eseguo quello che realmente devo fare
+			annuncioDAO.insert(annuncioInstance);
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
 }

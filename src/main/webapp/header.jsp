@@ -45,6 +45,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 -->
 
-
-<link href="./assets/css/custom-navbar.css" rel="stylesheet">
-	
+<script src="${pageContext.request.contextPath}/assets/js/custom-javascript.js" ></script>
+<link href="${pageContext.request.contextPath}/assets/css/custom-navbar.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/custom-index.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/custom-footer.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/custom-signin.css" rel="stylesheet">	

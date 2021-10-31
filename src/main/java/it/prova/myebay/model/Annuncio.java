@@ -24,8 +24,8 @@ public class Annuncio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	@Column(name = "testAnnuncio")
-	private String testAnnuncio;
+	@Column(name = "testoAnnuncio")
+	private String testoAnnuncio;
 	@Column(name = "utenteInserimento")
 	private String utenteInserimento;
 	@Column(name = "dataAnnuncio")
@@ -49,6 +49,18 @@ public class Annuncio {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Annuncio(Utente utente) {
+		super();
+		this.utente = utente;
+	}
+
+	public Annuncio(String testoAnnuncio, Integer prezzo, Date dataAnnuncio) {
+		super();
+		this.testoAnnuncio = testoAnnuncio;
+		this.dataAnnuncio = dataAnnuncio;
+		this.prezzo = prezzo;
+	}
+
 //############################ GET SET ###############################		
 
 	public Long getId() {
@@ -59,12 +71,12 @@ public class Annuncio {
 		this.id = id;
 	}
 
-	public String getTestAnnuncio() {
-		return testAnnuncio;
+	public String getTestoAnnuncio() {
+		return testoAnnuncio;
 	}
 
-	public void setTestAnnuncio(String testAnnuncio) {
-		this.testAnnuncio = testAnnuncio;
+	public void setTestoAnnuncio(String testoAnnuncio) {
+		this.testoAnnuncio = testoAnnuncio;
 	}
 
 	public String getUtenteInserimento() {

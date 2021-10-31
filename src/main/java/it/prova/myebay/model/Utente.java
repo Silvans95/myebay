@@ -171,5 +171,13 @@ public class Utente {
 		}
 		return false;
 	}
+	
+	public boolean isUser() {
+		for (Ruolo ruoloItem : ruoli) {
+			if (ruoloItem.getCodice().equals(Ruolo.CLASSIC_USER_ROLE))
+				return true;
+		}
+		return false;
+	}
 
 }

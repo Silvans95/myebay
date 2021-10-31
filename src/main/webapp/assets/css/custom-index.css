@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+.custom-index {
+	text-align: -webkit-center;
+	background-color: #c2ccd36e !important;
+	box-shadow: 0px 10px 11px 1px;
+}
+
+.custom-div-index {
+	margin: auto;
+}
+
+.custom-line-index {
+	height: 3px !important;
+	margin: 40px auto 40px auto;
+	width: 75%;
+	background-color: #4f5356 !important;
+	opacity: 0.8;
+	border-radius: 20px;
+	box-shadow: -1px 1px 14px 1px;
+}
+
+.custom-form-box {
+	border: 3px solid #c2ccd3 !important;
+	
+}
+.custom-form-box:focus{
+	box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 43%);
+}

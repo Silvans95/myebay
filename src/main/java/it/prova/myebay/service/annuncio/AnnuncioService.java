@@ -29,6 +29,8 @@ public interface AnnuncioService  {
 
 	void setCategoriaDAO(CategoriaDAO categoriaDAO);
 
+	void inserisciNuovoConCategorie(Annuncio annuncioInstance, String[] categoriaInstance) throws Exception;
+
 
 
 }

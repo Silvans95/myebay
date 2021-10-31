@@ -68,9 +68,9 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 
 		StringBuilder queryBuilder = new StringBuilder("select r from Annuncio r where r.id = r.id ");
 
-		if (StringUtils.isNotEmpty(example.getTestAnnuncio())) {
+		if (StringUtils.isNotEmpty(example.getTestoAnnuncio())) {
 			whereClauses.add(" r.testoAnnuncio  like :testoAnnuncio ");
-			paramaterMap.put("testoAnnuncio", "%" + example.getTestAnnuncio() + "%");
+			paramaterMap.put("testoAnnuncio", "%" + example.getTestoAnnuncio() + "%");
 		}
 
 		if (StringUtils.isNotEmpty(example.getUtenteInserimento())) {

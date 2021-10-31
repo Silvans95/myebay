@@ -88,9 +88,18 @@ public class MyServiceFactory {
 		if (ANNUNCIO_DAO_INSTANCE == null)
 			ANNUNCIO_DAO_INSTANCE = new AnnuncioDAOImpl();
 
+		if (CATEGORIA_SERVICE_INSTANCE == null)
+			CATEGORIA_SERVICE_INSTANCE = new CategoriaServiceImpl();
+
+		if (CATEGORIA_DAO_INSTANCE == null)
+			CATEGORIA_DAO_INSTANCE = new CategoriaDAOImpl();
+
+		ANNUNCIO_SERVICE_INSTANCE.setCategoriaDAO(CATEGORIA_DAO_INSTANCE);
+
 		ANNUNCIO_SERVICE_INSTANCE.setAnnuncioDAO(ANNUNCIO_DAO_INSTANCE);
 
 		return ANNUNCIO_SERVICE_INSTANCE;
+
 	}
 
 	public static AcquistoService getAcquistoServiceInstance() {
