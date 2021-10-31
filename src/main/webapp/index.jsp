@@ -41,7 +41,7 @@
 					</p>
 					<hr class="custom-line-index">
 					<div>
-						<form method="post" action="ExecuteListAnnunci" class="row g-3"
+						<form method="post" action="ExecuteCercaAnnunciServlet" class="row g-3"
 							novalidate="novalidate">
 
 							<div class="col-md-6 custom-div-index">

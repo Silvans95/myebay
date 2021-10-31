@@ -53,6 +53,19 @@ public class Annuncio {
 		super();
 		this.utente = utente;
 	}
+	
+	
+	public Annuncio(String testoAnnuncio, Date dataAnnuncio) {
+		super();
+		this.testoAnnuncio = testoAnnuncio;
+		this.dataAnnuncio = dataAnnuncio;
+	}
+
+	public Annuncio(String testoAnnuncio, Integer prezzo) {
+		super();
+		this.testoAnnuncio = testoAnnuncio;
+		this.prezzo = prezzo;
+	}
 
 	public Annuncio(String testoAnnuncio, Integer prezzo, Date dataAnnuncio) {
 		super();
@@ -62,6 +75,7 @@ public class Annuncio {
 	}
 
 //############################ GET SET ###############################		
+
 
 	public Long getId() {
 		return id;

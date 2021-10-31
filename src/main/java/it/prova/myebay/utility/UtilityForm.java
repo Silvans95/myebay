@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import it.prova.myebay.model.Annuncio;
 
@@ -20,20 +21,21 @@ public class UtilityForm {
 			return null;
 		}
 	}
-	
-	
-	//##########################################################################################
-	
+
+	// ##########################################################################################
+
 	public static Annuncio createAnnuncioFromParams(String testoAnnuncioParam, String prezzoParamInput) {
 
-		
 //		questo metodo crea un utente e automaticamente gli mette la data e lo stato aperto
-		
+
 		Date dataCreatedParam = new Date();
-		Integer prezzoParam = Integer.parseInt(prezzoParamInput);
-		Annuncio result = new Annuncio(testoAnnuncioParam, prezzoParam, dataCreatedParam);
+		Annuncio result = new Annuncio(testoAnnuncioParam, dataCreatedParam);
+
+		if (NumberUtils.isCreatable(prezzoParamInput)) {
+			result.setPrezzo(Integer.parseInt(prezzoParamInput));
+		}
 		result.setAperto(true);
-		
+
 		return result;
 	}
 
@@ -41,12 +43,10 @@ public class UtilityForm {
 		// prima controlliamo che non siano vuoti i parametri
 		if (StringUtils.isBlank(annuncioToBeValidated.getTestoAnnuncio())
 				|| StringUtils.isBlank(annuncioToBeValidated.getUtenteInserimento())
-				|| annuncioToBeValidated.getPrezzo() == null
-				|| annuncioToBeValidated.getDataAnnuncio() == null) {
+				|| annuncioToBeValidated.getPrezzo() == null || annuncioToBeValidated.getDataAnnuncio() == null) {
 			return false;
 		}
 		return true;
 	}
 
-	
 }

@@ -6,7 +6,7 @@
 	 <head>
 	 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="../header.jsp" />
+	 	<jsp:include page="./header.jsp" />
 	   
 	   <title>Pagina dei Risultati</title>
 	 </head>
@@ -14,7 +14,7 @@
 	<body class="d-flex flex-column h-100">
 	 
 		<!-- Fixed navbar -->
-		<jsp:include page="../navbar.jsp"></jsp:include>
+		<jsp:include page="./navbar.jsp"></jsp:include>
 	 
 	
 		<!-- Begin page content -->
@@ -41,18 +41,14 @@
 				        <h5>Lista dei risultati</h5> 
 				    </div>
 				    <div class='card-body'>
-				    	<a class="btn btn-primary " href="PrepareInsertUtenteServlet">Add New</a>
-				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >
 				                <thead>
 				                    <tr>
 			                         	<th>Annuncio</th>
 				                        <th>Prezzo</th>
-				                        <th>Proprietario dell'annuncio</th>
-				                        <th>Data di Creazione</th>
-				                        <th>Azioni </th>
-				                        
+				                        <th>Stato Annuncio</th>
+				                        <th>Azioni</th>
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -60,12 +56,9 @@
 										<tr>
 											<td>${annunciItem.testoAnnuncio }</td>
 											<td>${annunciItem.prezzo }</td>
-											<td>${annunciItem.utenteInserimento }</td>
-											<td><fmt:formatDate type = "date" value = "${annunciItem.dataAnnuncio }" /></td>
+											<td>${annunciItem.aperto }</td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="#">Visualizza</a>
-												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="#">Edit</a>
-												<a class="btn btn-outline-danger btn-sm" href="#">Delete</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaDettagliAnnuncioServlet?idAnnuncio=${annunciItem.id }">Visualizza Dettagli Annuncio</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -77,7 +70,11 @@
 			    </div>
 			<!-- end card -->
 			</div>	
-		 
+					 <div class='card-footer'>
+					        <a href="home" class='btn btn-outline-secondary' style='width:80px'>
+					            <i class='fa fa-chevron-left'></i> Back
+					        </a>
+					    </div>
 		   
 		 <!-- end container -->  
 		  </div>
@@ -85,7 +82,7 @@
 		</main>
 		
 		<!-- Footer -->
-		<jsp:include page="../footer.jsp" />
+		<jsp:include page="./footer.jsp" />
 		
 	</body>
 </html>

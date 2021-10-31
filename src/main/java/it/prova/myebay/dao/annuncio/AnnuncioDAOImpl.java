@@ -73,24 +73,9 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			paramaterMap.put("testoAnnuncio", "%" + example.getTestoAnnuncio() + "%");
 		}
 
-		if (StringUtils.isNotEmpty(example.getUtenteInserimento())) {
-			whereClauses.add(" r.utenteInserimento like :utenteInserimento ");
-			paramaterMap.put("utenteInserimento", "%" + example.getUtenteInserimento() + "%");
-		}
-
 		if (example.getPrezzo() != null) {
-			whereClauses.add(" r.prezzo like :prezzo ");
-			paramaterMap.put("prezzo", "%" + example.getPrezzo() + "%");
-		}
-
-		if (example.getDataAnnuncio() != null) {
-			whereClauses.add("r.dataAnnuncio >= :dataAnnuncio ");
-			paramaterMap.put("dataAnnuncio", example.getDataAnnuncio());
-		}
-
-		if (example.isAperto()) {
-			whereClauses.add("r.aperto like :aperto ");
-			paramaterMap.put("aperto", example.isAperto());
+			whereClauses.add(" r.prezzo > :prezzo ");
+			paramaterMap.put("prezzo", example.getPrezzo());
 		}
 
 		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");

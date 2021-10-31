@@ -34,7 +34,7 @@
 				<div class="col-md-3 text-end">
 					<p class="navbar-text" style="color: black">
 						Utente: ${userInfo.username }(${userInfo.nome } ${userInfo.cognome })
-						<a class="btn btn-navbar " href="login.jsp"><b>Login</b></a>
+						<a class="btn btn-navbar " href="${pageContext.request.contextPath}/login.jsp"><b>Login</b></a>
 						<a class="btn btn-navbar" href="${pageContext.request.contextPath}/LogoutServlet"><b>Logout</b></a>
 					</p>
 				</div>
