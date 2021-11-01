@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import it.prova.myebay.model.Annuncio;
+import it.prova.myebay.model.StatoUtente;
+import it.prova.myebay.model.Utente;
 
 public class UtilityForm {
 
@@ -44,6 +46,31 @@ public class UtilityForm {
 		if (StringUtils.isBlank(annuncioToBeValidated.getTestoAnnuncio())
 				|| StringUtils.isBlank(annuncioToBeValidated.getUtenteInserimento())
 				|| annuncioToBeValidated.getPrezzo() == null || annuncioToBeValidated.getDataAnnuncio() == null) {
+			return false;
+		}
+		return true;
+	}
+	
+	
+	public static Utente createUtenteFromParams(String nomeInputParam, String cognomeInputParam,
+			String usernameInputParam, String passwordInputParam) {
+
+		Date dataCreatedParam = new Date();
+		
+		Utente result = new Utente(usernameInputParam, passwordInputParam, nomeInputParam, cognomeInputParam, dataCreatedParam);
+		result.setCreditoResiduo(0);
+		result.setStato(StatoUtente.CREATO);
+		return result;
+	}
+
+	public static boolean validateUtenteBean(Utente utenteToBeValidated) {
+		// prima controlliamo che non siano vuoti i parametri
+		if (StringUtils.isBlank(utenteToBeValidated.getNome())
+				|| StringUtils.isBlank(utenteToBeValidated.getCognome())
+				|| StringUtils.isBlank(utenteToBeValidated.getUsername()) 
+				|| StringUtils.isBlank(utenteToBeValidated.getPassword()) 
+				|| utenteToBeValidated.getStato() == null
+				|| utenteToBeValidated.getDateCreated() == null) {
 			return false;
 		}
 		return true;

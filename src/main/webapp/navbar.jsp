@@ -33,6 +33,17 @@
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareSearchAnnuncioServlet">Cerca tra gli Annunci</a></li>
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareSearchAcuistoServlet">Cerca tra i tuoi Acquisti</a></li>
 							</ul></li></c:if>
+							
+							
+					<c:if test="${userInfo.isAdmin() }" >
+					<li class="nav-item dropdown "><a
+						class="nav-link dropdown-toggle dropdown-navbar" href="#"
+						id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false"><b>Admin</b></a>
+						<ul class="dropdown-menu dropdown-menu-navbar"
+							aria-labelledby="dropdown07">
+							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/admin/PrepareCercaUtenteServlet">Cerca Utente</a></li>
+							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/admin/PrepareInsertUtenteServlet">Inserisci Utente</a></li>
+							</ul></li></c:if>
 				</ul>
 				<div class="col-md-3 text-end">
 					<p class="navbar-text" style="color: black">
