@@ -53,9 +53,10 @@
 						<table class='table table-striped '>
 							<thead>
 								<tr>
-									<th>Annuncio</th>
+									<th>Acquisto</th>
 									<th>Prezzo</th>
-									<th>Data di Creazione</th>
+									<th>Data di Acquisto</th>
+									<th>Proprietario dell'acquisto</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -65,6 +66,7 @@
 										<td>${acquistiItem.prezzo }</td>
 										<td><fmt:formatDate type="date"
 												value="${acquistiItem.dataAcquisto }" /></td>
+												<td>${acquistiItem.utenteAcquirente }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -72,10 +74,7 @@
 					</div>
 
 					<div class='card-footer'>
-						<a href="PrepareInsertAnnuncioServlet"
-							class='btn btn-navbar'> <i
-							class='fa fa-chevron-left'></i> Aggiungi Nuovo
-						</a> <a href="/myebay/home" class='btn btn-navbar'>
+							<a href="/myebay/home" class='btn btn-navbar'>
 							<i class='fa fa-chevron-left'></i> Indietro
 						</a>
 					</div>

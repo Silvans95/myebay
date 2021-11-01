@@ -103,9 +103,9 @@
 			        <div class="feature-icon bg-primary bg-gradient" style="background-color: #6d7174 !important">
 			          <svg class="bi" width="1em" height="1em" ><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Ricerca Registi</h2>
+			        <h2>Gestione Annunci</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareSearchRegistaServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/user/ExecuteGestioneAnnunciServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -117,9 +117,9 @@
 			        <div class="feature-icon bg-primary bg-gradient" style="background-color: #6d7174 !important">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 			        </div>
-			        <h2>Inserisci Nuovo Regista</h2>
+			        <h2>Gestione Acquisti</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareInsertRegistaServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/user/ExecuteVisualizzaAcquistiServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
@@ -132,9 +132,9 @@
 			        <div class="feature-icon bg-primary bg-gradient" style="background-color: #6d7174 !important">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
 			        </div>
-			        <h2>Ricerca Film</h2>
+			        <h2>Ricerca Utente</h2>
 			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="PrepareSearchFilmServlet" class="icon-link">
+			        <a href="${pageContext.request.contextPath}/admin/PrepareCercaUtenteServlet" class="icon-link">
 			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>

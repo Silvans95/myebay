@@ -26,7 +26,8 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String loginInput = request.getParameter("inputUsername");
 		String passwordInput = request.getParameter("inputPassword");
-
+		String urlParam = request.getParameter("url");
+		
 		if (StringUtils.isEmpty(loginInput) || StringUtils.isEmpty(passwordInput)) {
 			request.setAttribute("errorMessage", "E' necessario riempire tutti i campi.");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -42,16 +43,16 @@ public class LoginServlet extends HttpServlet {
 				destinazione = "login.jsp";
 			} else {
 				request.getSession().setAttribute("userInfo", utenteInstance);
-				destinazione = "home";
+				destinazione = urlParam;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			destinazione = "login.jsp";
 			request.setAttribute("errorMessage", "Attenzione! Si è verificato un errore.");
+			request.getRequestDispatcher(destinazione).forward(request, response);
 		}
 
-		request.getRequestDispatcher(destinazione).forward(request, response);
-			
+		response.sendRedirect(destinazione);
 	}
 
 }

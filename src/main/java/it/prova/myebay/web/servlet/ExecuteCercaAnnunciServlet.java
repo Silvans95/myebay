@@ -27,7 +27,6 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 			
 			Annuncio example = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
 			request.setAttribute("annunci_list_attribute", MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
-			System.out.println(MyServiceFactory.getAnnuncioServiceInstance().findByExample(example).size());
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");

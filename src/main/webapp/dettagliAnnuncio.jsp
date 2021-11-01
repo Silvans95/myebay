@@ -72,7 +72,7 @@
 							<c:set value="${pageContext.request.contextPath}/user/ExecuteEffettuaAcquistoServlet" var="address"></c:set>
 						</c:when>
 						<c:otherwise>
-							<c:set value="${pageContext.request.contextPath}/login.jsp"
+							<c:set value="${pageContext.request.contextPath}/PrepareLoginServlet"
 								var="address"></c:set>
 						</c:otherwise>
 					</c:choose>

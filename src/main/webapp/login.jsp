@@ -54,6 +54,7 @@
 						Remember me
 					</label>
 				</div>
+				<input type="hidden" name="url" value="${url_attr}">
 				<button class="w-100 btn btn-lg btn-navbar" type="submit">Sign
 					in</button>
 					

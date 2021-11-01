@@ -49,7 +49,7 @@
 					<p class="navbar-text" style="color: black">
 						Utente: ${userInfo.username }(${userInfo.nome } ${userInfo.cognome })
 						<c:if test="${!userInfo.isUser() }" >
-						<a class="btn btn-navbar " href="${pageContext.request.contextPath}/login.jsp"><b>Login</b></a>
+						<a class="btn btn-navbar " href="${pageContext.request.contextPath}/PrepareLoginServlet"><b>Login</b></a>
 						</c:if>
 						<a class="btn btn-navbar" href="${pageContext.request.contextPath}/LogoutServlet"><b>Logout</b></a>
 					</p>
