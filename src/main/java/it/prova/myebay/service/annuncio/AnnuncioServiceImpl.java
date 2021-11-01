@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 
 import it.prova.myebay.dao.categoria.CategoriaDAO;
+import it.prova.myebay.exceptions.ElementNotFoundException;
 import it.prova.myebay.dao.annuncio.AnnuncioDAO;
 import it.prova.myebay.model.Categoria;
 import it.prova.myebay.model.Annuncio;
@@ -124,6 +125,33 @@ public class AnnuncioServiceImpl implements AnnuncioService {
 
 	}
 
+	@Override
+	public void rimuovi(Long idAnnuncioToRemove) throws Exception {
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+
+			annuncioDAO.setEntityManager(entityManager);
+			Annuncio annuncioToRemove = annuncioDAO.findOne(idAnnuncioToRemove).orElse(null);
+			if (annuncioToRemove == null)
+				throw new ElementNotFoundException("Annuncio con id: " + idAnnuncioToRemove + " non trovato.");
+
+			annuncioDAO.delete(annuncioToRemove);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+
+	}
+
+	
+	
+	
 	@Override
 	public void aggiungiCategoria(Annuncio annuncioEsistente, Categoria categoriaInstance) throws Exception {
 		// questo è come una connection

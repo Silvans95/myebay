@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <header>
 	<nav
 		class="navbar navbar-expand-md navbar-dark fixed-top navbar-background">
@@ -20,25 +21,30 @@
 						tabindex="-1" aria-disabled="true"><b>Link</b></a></li>
 					<li class="nav-item"><a class="nav-link link-navbar" href="#"
 						tabindex="-1" aria-disabled="true"><b>Link</b></a></li>
+					
+					<c:if test="${userInfo.isUser() || userInfo.isAdmin() }" >
 					<li class="nav-item dropdown "><a
 						class="nav-link dropdown-toggle dropdown-navbar" href="#"
-						id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false"><b>Dropdown</b></a>
+						id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false"><b>My User</b></a>
 						<ul class="dropdown-menu dropdown-menu-navbar"
 							aria-labelledby="dropdown07">
-							<li><a class="dropdown-item dropdown-navbar-item" href="#">Link</a></li>
-							<li><a class="dropdown-item dropdown-navbar-item" href="#">Link</a></li>
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/ExecuteGestioneAnnunciServlet">Gestione Annunci</a></li>
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareInsertAnnuncioServlet">Inserisci Annuncio</a></li>
-						</ul></li>
+							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareSearchAnnuncioServlet">Cerca tra gli Annunci</a></li>
+							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareSearchAcuistoServlet">Cerca tra i tuoi Acquisti</a></li>
+							</ul></li></c:if>
 				</ul>
 				<div class="col-md-3 text-end">
 					<p class="navbar-text" style="color: black">
 						Utente: ${userInfo.username }(${userInfo.nome } ${userInfo.cognome })
+						<c:if test="${!userInfo.isUser() }" >
 						<a class="btn btn-navbar " href="${pageContext.request.contextPath}/login.jsp"><b>Login</b></a>
+						</c:if>
 						<a class="btn btn-navbar" href="${pageContext.request.contextPath}/LogoutServlet"><b>Logout</b></a>
 					</p>
 				</div>
-
+  
+          
 			</div>
 		</div>
 	</nav>

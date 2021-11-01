@@ -66,3 +66,7 @@
 .dropdown-menu-navbar{
 	background: rgb(79 83 86);
 }
+.card-header{
+    padding: 4%;
+    text-align: initial;
+}

@@ -31,6 +31,8 @@ public interface AnnuncioService  {
 
 	void inserisciNuovoConCategorie(Annuncio annuncioInstance, String[] categoriaInstance) throws Exception;
 
+	void rimuovi(Long idAnnuncioToRemove) throws Exception;
+
 
 
 }

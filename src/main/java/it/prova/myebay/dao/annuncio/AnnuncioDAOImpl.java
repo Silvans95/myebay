@@ -77,6 +77,10 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			whereClauses.add(" r.prezzo > :prezzo ");
 			paramaterMap.put("prezzo", example.getPrezzo());
 		}
+		if (example.getUtente() != null) {
+			whereClauses.add(" r.utente.id =:utente ");
+			paramaterMap.put("utente", example.getUtente().getId());
+		}
 
 		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");
 		queryBuilder.append(StringUtils.join(whereClauses, " and "));

@@ -4,7 +4,7 @@
 	 <head>
 
 	 	<!-- Common imports in pages -->
-	 	<jsp:include page="./header.jsp" />
+	 	<jsp:include page="../header.jsp" />
 	 	
 	   <title>Visualizza Elemento</title>
 	   
@@ -12,7 +12,7 @@
 	   <body class="d-flex flex-column h-100">
 	   
 	   		<!-- Fixed navbar -->
-	   		<jsp:include page="./navbar.jsp"></jsp:include>
+	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
 			
 			<!-- Begin page content -->
@@ -60,9 +60,14 @@
 					    <!-- end card body -->
 					    
 					    <div class='card-footer'>
-					        <a href="ExecuteCercaAnnunciServlet" class='btn btn-outline-secondary' style='width:80px'>
-					            <i class='fa fa-chevron-left'></i> Back
-					        </a>
+					    	<form action="ExecuteCancellaAnnuncioServlet" method="post">
+					    		<input type="hidden" name="idAnnuncio" value="${dettagli_annunci_attr.id}">
+						    	<button type="submit" name="submit" id="submit" class="btn btn-danger">Conferma</button>
+						        <a href="ExecuteGestioneAnnunciServlet" class='btn btn-outline-secondary' style='width:80px'>
+						            <i class='fa fa-chevron-left'></i> Back
+						        </a>
+					        </form>
+					       
 					    </div>
 					<!-- end card -->
 					</div>	
@@ -74,6 +79,6 @@
 			</main>
 			
 			<!-- Footer -->
-			<jsp:include page="./footer.jsp" />
+			<jsp:include page="../footer.jsp" />
 	  </body>
 </html>

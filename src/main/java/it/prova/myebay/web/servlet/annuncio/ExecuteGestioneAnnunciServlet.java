@@ -35,6 +35,6 @@ public class ExecuteGestioneAnnunciServlet extends HttpServlet {
 		}
 
 		// andiamo ai risultati
-		request.getRequestDispatcher("/user/listAnnunci.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/mylistAnnunci.jsp").forward(request, response);
 	}
 }

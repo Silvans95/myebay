@@ -31,31 +31,34 @@
 				<div class="container-fluid py-5">
 					
 					<p class="col-md-8 fs-4">
-						<b>Usa il form qui sotto per inserire un nuovo annuncio.</b>
+						<b>Usa il form qui sotto per modificare il tuo annuncio.</b>
 					</p>
 					<hr class="custom-line-index">
 					<div>
-						<form method="post" action="ExecuteInsertAnnuncioServlet" class="row g-3"
+						<form method="post" action="ExecuteModificaAnnuncioServlet" class="row g-3"
 							novalidate="novalidate">
+
+						<input type="hidden" name="idAnnuncio" value="${update_annuncio_attr.id}">
 
 							<div class="col-md-6 custom-div-index">
 								<label>Inserisci il testo dell'annuncio:</label> <input type="text"
 									name="testoAnnuncio" id="testoAnnuncio"
 									class="form-control custom-form-box"
 									placeholder="Inserisci il testo dell'annuncio"
-									value="${insert_annuncio_attr.testoAnnuncio }">
+									value="${update_annuncio_attr.testoAnnuncio }">
 
 							</div>
 							<hr class="custom-line-index">
 							<div class="col-md-6 custom-div-index">
 								<label>Inserisci il prezzo</label> <input type="number"
 									class="form-control custom-form-box" name="prezzo" id="prezzo"
-									placeholder="Inserire il prezzo">
+									placeholder="Inserire il prezzo"
+									value="${update_annuncio_attr.prezzo }">
 							</div>
 							<hr class="custom-line-index">
 							<div class="checkbox mb-3">
 							<label>Inserisci le categorie:</label><br>
-								<c:forEach items="${categoria_list_attribute }"	var="categoriaItem">
+								<c:forEach items="${categorie_list_attribute }"	var="categoriaItem">
 									<label> <input type="checkbox" name="categoriaInput" class="custom-form-box" value="${categoriaItem.id}">
 										${categoriaItem.descrizione}</label>
 									<br>

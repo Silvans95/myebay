@@ -1,4 +1,4 @@
-package it.prova.myebay.web.servlet;
+package it.prova.myebay.web.servlet.annuncio;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import it.prova.myebay.model.Annuncio;
+import it.prova.myebay.model.Utente;
 import it.prova.myebay.service.MyServiceFactory;
 import it.prova.myebay.utility.UtilityForm;
 
-@WebServlet("/ExecuteCercaAnnunciServlet")
+@WebServlet("/user/ExecuteCercaAnnunciServlet")
 public class ExecuteCercaAnnunciServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,17 +25,23 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 		String[] categoriaInputParam = request.getParameterValues("categoriaInput");
 
 		try {
+			HttpServletRequest httpRequest = (HttpServletRequest) request;
+			
+			Utente utenteExample = (Utente)httpRequest.getSession().getAttribute("userInfo");
 			
 			Annuncio example = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
+			
+			example.setUtente(utenteExample);
+			
 			request.setAttribute("annunci_list_attribute", MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
-			System.out.println(MyServiceFactory.getAnnuncioServiceInstance().findByExample(example).size());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("/home").forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher("/listAnnunci.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/mylistAnnunci.jsp").forward(request, response);
 	}
 	
 	@Override
@@ -45,17 +52,23 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 		String[] categoriaInputParam = request.getParameterValues("categoriaInput");
 
 		try {
+			HttpServletRequest httpRequest = (HttpServletRequest) request;
+			
+			Utente utenteExample = (Utente)httpRequest.getSession().getAttribute("userInfo");
 			
 			Annuncio example = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
+			
+			example.setUtente(utenteExample);
+			
 			request.setAttribute("annunci_list_attribute", MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
-			System.out.println(MyServiceFactory.getAnnuncioServiceInstance().findByExample(example).size());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("/home").forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher("/listAnnunci.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/mylistAnnunci.jsp").forward(request, response);
 	}
 
 
