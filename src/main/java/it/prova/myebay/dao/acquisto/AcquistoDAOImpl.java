@@ -79,14 +79,9 @@ public class AcquistoDAOImpl implements AcquistoDAO {
 			paramaterMap.put("utenteAcquirente", "%" + example.getUtenteAcquirente() + "%");
 		}
 
-		if (example.getPrezzo() != null) {
-			whereClauses.add(" r.prezzo like :prezzo ");
-			paramaterMap.put("prezzo", "%" + example.getPrezzo() + "%");
-		}
-
-		if (example.getDataAcquisto() != null) {
-			whereClauses.add("r.dataAcquisto  >= :dataAcquisto  ");
-			paramaterMap.put("dataAcquisto ", example.getDataAcquisto());
+		if (example.getUtente() != null) {
+			whereClauses.add(" r.utente.id =:utente ");
+			paramaterMap.put("utente", example.getUtente().getId());
 		}
 
 		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");

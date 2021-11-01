@@ -31,7 +31,7 @@
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/ExecuteGestioneAnnunciServlet">Gestione Annunci</a></li>
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareInsertAnnuncioServlet">Inserisci Annuncio</a></li>
 							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareSearchAnnuncioServlet">Cerca tra gli Annunci</a></li>
-							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/PrepareSearchAcuistoServlet">Cerca tra i tuoi Acquisti</a></li>
+							<li><a class="dropdown-item dropdown-navbar-item" href="${pageContext.request.contextPath}/user/ExecuteVisualizzaAcquistiServlet">Visualizza Acquisti</a></li>
 							</ul></li></c:if>
 							
 							

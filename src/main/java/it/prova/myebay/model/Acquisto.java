@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "acquisto")
 public class Acquisto {
@@ -31,18 +30,30 @@ public class Acquisto {
 	private Integer prezzo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "utente_id",nullable = false)
+	@JoinColumn(name = "utente_id", nullable = false)
 	private Utente utente;
-	
+
 //############################ COSTRUTTORI ###########################
-	
+
 	public Acquisto() {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Acquisto(Utente utente) {
+		super();
+		this.utente = utente;
+	}
+
+	public Acquisto(String descrizione, Integer prezzo, String utenteAcquirente, Date dataAcquisto) {
+		super();
+		this.descrizione = descrizione;
+		this.utenteAcquirente = utenteAcquirente;
+		this.dataAcquisto = dataAcquisto;
+		this.prezzo = prezzo;
+	}
+
 //############################ GET SET ###########################
-	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -90,6 +101,5 @@ public class Acquisto {
 	public void setUtente(Utente utente) {
 		this.utente = utente;
 	}
-	
-	
+
 }

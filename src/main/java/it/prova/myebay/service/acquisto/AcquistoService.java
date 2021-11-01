@@ -20,4 +20,6 @@ public interface AcquistoService {
 
 	// per injection
 	public void setAcquistoDAO(AcquistoDAO acquistoDAO);
+
+	public Object findByExample(Acquisto example) throws Exception;
 }
