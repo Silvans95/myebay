@@ -7,28 +7,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.prova.myebay.model.Utente;
-
 /**
  * Servlet implementation class PrepareLoginServlet
  */
 @WebServlet("/PrepareLoginServlet")
 public class PrepareLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-			String referer = request.getHeader("Referer");
-
-			request.setAttribute("url_attr", referer );
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String referer = request.getHeader("Referer");
 
-		request.setAttribute("url_attr", referer );
-	request.getRequestDispatcher("/login.jsp").forward(request, response);
-}
+		request.setAttribute("url_attr", referer);
+		request.getRequestDispatcher("/login.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String referer = request.getHeader("Referer");
+
+		request.setAttribute("url_attr", referer);
+		request.getRequestDispatcher("/login.jsp").forward(request, response);
+	}
 }

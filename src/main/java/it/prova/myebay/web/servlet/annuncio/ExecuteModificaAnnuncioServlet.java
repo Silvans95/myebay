@@ -1,6 +1,8 @@
 package it.prova.myebay.web.servlet.annuncio;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,17 +31,21 @@ public class ExecuteModificaAnnuncioServlet extends HttpServlet {
 		String testoAnnuncioParam = request.getParameter("testoAnnuncio");
 		String prezzoParam = request.getParameter("prezzo");
 		String[] idCategorieParam = request.getParameterValues("categoriaInput");
-
-		Annuncio annuncioInstance = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
-		Utente utenteExample = (Utente) httpRequest.getSession().getAttribute("userInfo");
-
-		// ora il mio annuncio ha un testo, un prezzo, una data e un booleano tramite il
-		// metodo.
-		annuncioInstance.setUtenteInserimento(utenteExample.getUsername());
-		annuncioInstance.setUtente(utenteExample);
 		
-		annuncioInstance.setId(Long.parseLong(idParam));
+
 		try {
+
+			Date vecchiaData = MyServiceFactory.getAnnuncioServiceInstance().caricaSingoloElemento(Long.parseLong(idParam)).getDataAnnuncio();
+			Annuncio annuncioInstance = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
+			Utente utenteExample = (Utente) httpRequest.getSession().getAttribute("userInfo");
+
+			annuncioInstance.setDataAnnuncio(vecchiaData);
+			// ora il mio annuncio ha un testo, un prezzo, una data e un booleano tramite il
+			// metodo.
+			annuncioInstance.setUtenteInserimento(utenteExample.getUsername());
+			annuncioInstance.setUtente(utenteExample);
+			annuncioInstance.setId(Long.parseLong(idParam));
+			
 			// se la validazione non risulta ok
 			if (!UtilityForm.validateAnnuncioBean(annuncioInstance)) {
 				request.setAttribute("update_annuncio_attr", annuncioInstance);

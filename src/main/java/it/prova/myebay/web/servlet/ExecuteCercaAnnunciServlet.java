@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import it.prova.myebay.model.Annuncio;
 import it.prova.myebay.service.MyServiceFactory;
 import it.prova.myebay.utility.UtilityForm;
@@ -24,9 +23,17 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 		String[] categoriaInputParam = request.getParameterValues("categoriaInput");
 
 		try {
-			
 			Annuncio example = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
-			request.setAttribute("annunci_list_attribute", MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
+
+			if (categoriaInputParam != null) {
+				for (String categoriaItem : categoriaInputParam) {
+					example.getCategorie().add(MyServiceFactory.getCategoriaServiceInstance()
+							.caricaSingoloElemento(Long.parseLong(categoriaItem)));
+				}
+			}
+
+			request.setAttribute("annunci_list_attribute",
+					MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
@@ -35,7 +42,7 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 		}
 		request.getRequestDispatcher("/listAnnunci.jsp").forward(request, response);
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -44,10 +51,10 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 		String[] categoriaInputParam = request.getParameterValues("categoriaInput");
 
 		try {
-			
+
 			Annuncio example = UtilityForm.createAnnuncioFromParams(testoAnnuncioParam, prezzoParam);
-			request.setAttribute("annunci_list_attribute", MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
-			System.out.println(MyServiceFactory.getAnnuncioServiceInstance().findByExample(example).size());
+			request.setAttribute("annunci_list_attribute",
+					MyServiceFactory.getAnnuncioServiceInstance().findByExample(example));
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
@@ -56,6 +63,5 @@ public class ExecuteCercaAnnunciServlet extends HttpServlet {
 		}
 		request.getRequestDispatcher("/listAnnunci.jsp").forward(request, response);
 	}
-
 
 }

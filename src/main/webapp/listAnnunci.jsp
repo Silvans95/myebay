@@ -53,14 +53,18 @@
 				                </thead>
 				                <tbody>
 				                	<c:forEach items="${annunci_list_attribute }" var="annunciItem">
-										<tr>
+											<c:if test="${annunciItem.aperto }">
+											<c:if test="${!(userInfo.username == annunciItem.utente.username)}">
+											<tr>
 											<td>${annunciItem.testoAnnuncio }</td>
 											<td>${annunciItem.prezzo }</td>
 											<td>${annunciItem.aperto }</td>
-											<td>
+										<td>
 												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaDettagliAnnuncioServlet?idAnnuncio=${annunciItem.id }">Visualizza Dettagli Annuncio</a>
 											</td>
 										</tr>
+														</c:if>	
+													</c:if>
 									</c:forEach>
 				                </tbody>
 				            </table>

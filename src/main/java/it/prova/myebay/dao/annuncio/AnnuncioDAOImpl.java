@@ -66,8 +66,8 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 		Map<String, Object> paramaterMap = new HashMap<String, Object>();
 		List<String> whereClauses = new ArrayList<String>();
 
-		StringBuilder queryBuilder = new StringBuilder("select r from Annuncio r where r.id = r.id ");
-
+		StringBuilder queryBuilder = new StringBuilder("select distinct r from Annuncio r join fetch r.utente u join r.categorie c  where r.id = r.id ");
+		
 		if (StringUtils.isNotEmpty(example.getTestoAnnuncio())) {
 			whereClauses.add(" r.testoAnnuncio  like :testoAnnuncio ");
 			paramaterMap.put("testoAnnuncio", "%" + example.getTestoAnnuncio() + "%");
@@ -81,7 +81,11 @@ public class AnnuncioDAOImpl implements AnnuncioDAO {
 			whereClauses.add(" r.utente.id =:utente ");
 			paramaterMap.put("utente", example.getUtente().getId());
 		}
-
+		if(example.getCategorie() != null && !example.getCategorie().isEmpty()) {
+			whereClauses.add("c in :listaCategorie ");
+			paramaterMap.put("listaCategorie", example.getCategorie());
+		}
+		
 		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");
 		queryBuilder.append(StringUtils.join(whereClauses, " and "));
 		TypedQuery<Annuncio> typedQuery = entityManager.createQuery(queryBuilder.toString(), Annuncio.class);
